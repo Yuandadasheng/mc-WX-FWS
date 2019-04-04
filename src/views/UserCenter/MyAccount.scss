@@ -1,0 +1,42 @@
+.account .header{
+    width: 100%;
+    height: 1.2rem;
+    overflow: hidden;
+    text-align: center;
+    color: #454554;
+    background: rgba(221, 227, 249,.2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .left-arrows{
+        width: 1rem;
+    }
+    .title{
+        width: 8rem;
+        color :#454554;
+        font-size: 0.51rem;
+    }
+}
+.account-info{
+    width: 100%;
+    height: 1.36rem;
+    font-size: 0.4rem;
+    color :#454554;
+    border-bottom: 1px solid rgba(117, 117, 118, 0.2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .account-name{
+        width: 3.12rem;
+        padding-left: 0.32rem;
+        box-sizing: border-box;
+    }
+    .account-info-1{
+        width: 6.88rem;
+        font-size: 0.38rem;
+        color: rgba(69, 69, 84, .8);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

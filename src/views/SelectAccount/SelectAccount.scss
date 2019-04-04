@@ -1,0 +1,76 @@
+.account-list{
+    width: 100%;
+    height: 2.14rem;
+    padding: 0.48rem 0 0.32rem 0.64rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    .head-portrait{
+        width: 1.334rem;
+        height: 1.334rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px 1px rgba(42,85,247,0.28);
+        background: #DDE3F9;
+        .img-style{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .account-infor{
+        flex: 1 1  auto;
+        display: inline-flex;
+        flex-direction: column;
+      
+        p{
+            padding: 0;
+            margin: 0;
+            padding-left: 0.25rem;
+            box-sizing: border-box;
+        }
+        .account{
+            color: #000;
+            font-size: 0.374rem;
+            line-height: 0.75rem;
+        }
+        .account-infor-list {
+            color: #000;
+            font-size: 0.32rem;
+            line-height: 0.58rem;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+            .account-infor-name {
+                display: inline-block;
+                padding-right: 0.34rem;
+                width: 4.6rem;
+            }
+            .account-infor-addr{
+                flex: 1 1 auto;
+                width: 2.1rem;   
+            }
+            .line-limit-length {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+        }
+        
+    }
+}
+.clickColor{
+    background: #F0F3FF;
+}
+.account-submit{
+    width:  8.72rem;
+    height: 1.334rem;
+    position: fixed;
+    bottom: 1.213rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius:10px;
+    background: #2A55F7;
+}
