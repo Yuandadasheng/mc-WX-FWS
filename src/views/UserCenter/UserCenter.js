@@ -42,13 +42,9 @@ class SetList extends Component{
                 {
                   text: '确认退出',
                   onPress: () =>  this.props.onExit()
-                    // new Promise((resolve) => {
-                       
-                    // }),
                 },
               ])
         }
-        
     }
     render(){
         const {items} = this.props
@@ -70,9 +66,6 @@ class SetList extends Component{
         )
     }
 }
-
-
-
 class UserCenter extends Component{
     constructor(){
         super()
@@ -125,9 +118,6 @@ class UserCenter extends Component{
         )   
         
     }
-    // signOut(){
-       
-    // }
     render(){
         return(
             <div className="page">

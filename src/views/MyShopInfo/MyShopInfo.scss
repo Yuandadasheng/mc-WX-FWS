@@ -1,0 +1,86 @@
+.MyShopInfo .header{
+    width: 100%;
+    height: 1.2rem;
+    overflow: hidden;
+    text-align: center;
+    color: #454554;
+    background: rgba(221, 227, 249,.2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .left-arrows{
+        width: 1rem;
+    }
+    .title{
+        width: 8rem;
+        color :#454554;
+        font-size: 0.51rem;
+    }
+}
+.poll{
+    width: 100%;
+    height: 4rem;
+    .merchantPoll{
+        width: 100%;
+        height: 2.56rem;
+        background: #DDE3F9;
+        .merchantPollInfor{
+            width: 100%;
+            height: 100%;
+            padding-left: 0.4rem;  
+            padding-top: 0.64rem;  
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            // align-items: center;
+            .title{
+                height: .56rem;
+                line-height: .56rem;
+                font-size: 0.4rem;
+                color: #545454;
+            }
+            .number{
+                height: .9rem;
+                line-height: .9rem;
+                display: block;
+                font-size: 0.72rem;
+                color: #000;
+            }
+        }
+    }
+    .facilitatorPoll{
+        width: 100%;
+        height: 1.44rem;
+        background: #3E70FF;
+        padding-left: 0.4rem;
+        color:#fff;
+        font-size: 0.4rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+    }
+}
+.ShopInfoList{
+    width: 100%;
+    height: 1.36rem;
+    border-bottom: 1px solid RGBA(117, 117, 118, 0.2);
+    box-sizing: border-box; 
+    padding-left: 0.4rem;
+    display: flex;
+    font-size: 0.4rem;
+    justify-content: flex-start;
+    align-items: center;
+    .name{
+        width: 2.88rem;
+        color:#454545;
+    }
+    .prop{
+        width: 7.12rem;
+        color: rgba(69, 69, 84, .8);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}

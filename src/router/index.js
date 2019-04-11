@@ -12,6 +12,7 @@ import UserCenter from '@/views/UserCenter/UserCenter'
 import MyAccount from '@/views/UserCenter/MyAccount'
 import MyChangePWD from '@/views/UserCenter/MyChangePWD'
 import SwitchAccount from '@/views/UserCenter/SwitchAccount'
+import MyShopInfo from '@/views/MyShopInfo/MyShopInfo'
 
 const UserCenterList = ({ match }) =>(
     <div>
@@ -34,6 +35,7 @@ const Root = () =>{
                 <Route path="/MyDevice"  component = {MyDevice} />
                 <Route path="/MyShopList"  component = {MyShopList} />
                 <Route path="/UserCenter"  component = {UserCenterList} />
+                <Route path="/MyShopInfo"  component = {MyShopInfo} />
                 <Redirect to ="/" />
             </Switch>
         </div> 

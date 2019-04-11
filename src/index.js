@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import Root from './router';
 import * as serviceWorker from '@/serviceWorker';
+import moment from 'moment';
 import 'react-flexible';
 import 'antd-mobile/dist/antd-mobile.css';
 import  {apis}  from '@/utils/apis'
@@ -11,6 +12,7 @@ import '@/index.scss'
 
 
 React.Component.prototype.$apis = apis;
+React.Component.prototype.$moment  = moment;
 ReactDOM.render(
      <BrowserRouter>
         <Root />

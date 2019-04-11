@@ -1,0 +1,292 @@
+.dealType{
+    width: 100%;
+    background: rgba(221, 227, 249,.2);
+    box-shadow: 0px -3px 7px -2px rgba(42, 85, 247, 0.28) inset;
+    position: fixed;
+    top:0;
+    z-index: 100;
+    .dealTypeBut{
+        height: 1.36rem;
+        width: 100%;
+        display: flex;
+        .tradeStatistics,.operation{
+            width: 5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .dealCutBut{  
+            width: 3.04rem;
+            height: 0.8rem;
+            text-align: center;
+            font-size: 0.42rem;
+            line-height: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            white-space: nowrap;
+            color: #454545;
+            border-radius: 0.45rem;
+            box-shadow: 0px -1px 4px 0px rgba(42, 85, 247, 0.28) inset;
+        }
+        .selectBut{
+            color: #2A55F7;
+            background: rgba(221, 227, 249,.6);
+        }
+    }
+    .duration{
+        height: 0.64rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .durationItem{
+            width: 3.04rem;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .items{
+                width: 0.6rem;
+                height: 0.6rem;
+                border: 1px solid #2A55F7;
+                color: #2A55F7;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+            }
+            .statusType{
+                color: #fff;
+                background:  #2A55F7;
+            }
+        }
+    }
+    .timing{
+        height: 1.12rem;
+        width: 100%;
+        padding: 0 0.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        .timing-items{
+            width: 4.5rem;
+            height: 100%;
+            display: flex;
+            font-size: 0.4rem;
+            color : #454545;
+            align-items: center;
+            box-sizing: border-box;
+            .timing-items-1{
+                width: 4.5rem;
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-size: 0.34rem;
+            }
+        }
+    }
+    .MerchantsChoose{
+        height: 0.8rem;
+        width: 100%;
+        padding: 0 0.32rem;
+        font-size: 0.36rem;
+        color : #454545;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+
+        .title{
+            width: 1.7rem;
+        }
+        .title-name{
+            width: 7.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+            white-space: nowrap;
+        }
+        .title-img{
+            width: 0.4rem;
+        }
+    }
+}
+.MerchantList{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+    .search-form{
+        width: 100%;
+        height: 1.36rem;
+        background: #2A55F7;
+        padding:  0 0.4rem;
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        box-sizing: border-box;
+        display: flex;
+        justify-content:space-between ;
+        align-items: center;
+        .search{
+            width: 8rem;
+            height: .88rem;
+            input{
+                width: 100%;
+                height: 100%;
+                border-radius: 0.136rem;
+                border: none;
+                box-sizing: border-box;
+                padding-left: .272rem;
+            }
+        }
+        .search-but{
+            font-size: 0.4rem;
+            color:#fff;
+        }
+    }
+    .search-body{
+        width: 100%;
+        height: 100%;
+        padding-top: 1.36rem;
+        overflow-y: scroll;
+        box-sizing: border-box;
+        
+    }
+}
+.MerchantItemList{
+    height: 1rem;
+    width: 100%;
+    border-bottom: 1px solid RGBA(117, 117, 118, 0.2);
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    .name{
+        width: 3.6rem;
+    }
+    .roleName{
+        width: 1.6rem;
+    }
+    .address{
+        width: 4.8rem;
+        padding-right: 0.3rem; 
+    }
+    div{
+        padding-left: 0.3rem; 
+        box-sizing: border-box;
+    }
+}
+
+.tradeStatistics-style{
+    padding-top: 4rem;
+}
+.operation-style{
+    padding-top: 3.28rem;
+}
+.mianBody{
+    box-sizing: border-box;
+}
+.TransactionItem{
+    width: 100%;
+    height: 4.8rem;
+    padding: 0.32rem;
+    box-sizing: border-box;
+    .transaction-item{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(221, 227, 249, 0.4);
+        box-sizing: border-box;
+        border-radius: 0.16rem;
+        box-shadow: 0px -1px 4px 0px rgba(42, 85, 247, 0.28) inset;
+        .transaction-header{
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            padding: 0 0.32rem;
+            box-sizing: border-box;
+            border-bottom: 1px solid RGBA(117, 117, 118, 0.2);
+            .date{
+                font-size: 0.4rem;
+                color:#454545;
+                 
+            }
+        }
+        .body{
+            width: 100%;
+            height: 3.16rem;
+            padding: 0.16rem 0 0.26rem ;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            .title{
+                font-size: 0.43rem;
+                color: #454545;
+            }
+            .sum{
+                font-size: 1.2rem;
+                color: #2A55F7;
+            }
+            .quantity{
+                width: 100%;
+                font-size: 0.43rem;
+                color: #454545;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .item{
+                    width: 3.7rem;
+                    span .num{
+                        padding-left: 0.2rem;
+                        color: #2A55F7; 
+                        font-size: 0.55rem;
+                    }
+                }
+            }
+        }
+    }
+}
+.Operation{
+    width: 100%;
+    height: 1.5rem;
+    padding: 0.32rem 0.48rem 0;
+    box-sizing: border-box;
+    .item{
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid RGBA(117, 117, 118, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        .designation{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            box-sizing: border-box;
+            span{
+                color: #454545;
+                font-size: 0.4rem;
+            }
+            span.time{
+                color: #454545;
+                font-size: 0.36rem;
+                opacity:0.8;
+            }
+        }
+        .price{
+            color: #454545;
+            font-size: 0.64rem;
+        }
+    }
+}

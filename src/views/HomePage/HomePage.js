@@ -30,37 +30,43 @@ const SalesStatistics=(props)=>{
         </div>
     )
 }
-const  TotalNumberItem= (props) =>{
-    const {items}=props;
-    if(items.type !=='totalNuber'){
-        return(
-            <div className="TotalNumberItem">
-                <div className="TotalItem">
-                    <div className="type-num">
-                        {items.num}
-                    </div>
-                    <div className="type-name">
-                            {items.name}
-                    </div>
-                    <div className="type-time">
-                        {items.time? `(超过${items.time}h)` :''}
-                    </div>
-                </div>
-                
-            </div>
-        )
-    }else{
-        return(
-            <div className="totalNuber">
-               <div className="type-num">
-                    {items.num}
-               </div>
-               <div className="type-name">
-                     {items.name}
-               </div>
-            </div>
-        )
+class  TotalNumberItem extends Component{
+    totalFun(value){
+        this.props.LinkTypeFun(value);
     }
+    render(){
+        const {items}= this.props;
+        if(items.type !=='totalNuber'){
+            return(
+                <div className="TotalNumberItem" onClick={this.totalFun.bind(this,items.linkType)}>
+                    <div className="TotalItem">
+                        <div className="type-num">
+                            {items.num}
+                        </div>
+                        <div className="type-name">
+                                {items.name}
+                        </div>
+                        <div className="type-time">
+                            {items.time? `(超过${items.time}h)` :''}
+                        </div>
+                    </div>
+                    
+                </div>
+            )
+        }else{
+            return(
+                <div className="totalNuber" onClick={this.totalFun.bind(this,items.linkType)}>
+                <div className="type-num">
+                        {items.num}
+                </div>
+                <div className="type-name">
+                        {items.name}
+                </div>
+                </div>
+            )
+        }
+    }
+    
 }
 class HomePage extends Component{
     constructor(){
@@ -112,26 +118,31 @@ class HomePage extends Component{
                             name : '正常运行',
                             props : 'numberOfOnline',
                             type : 'onWorking',
-                            time : ''
+                            time : '',
+                            linkType: 'normal'
                         },{
                             name : '缺票设备',
                             props : 'missingTicketEquipment',
                             type : 'lessTiket',
-                            time : '12'
+                            time : '12',
+                            linkType: 'lack'
                         },{
                             name : '无销量设备',
                             props : 'noSalesEquipment',
                             type : 'noSales',
-                            time : '24'
+                            time : '24',
+                            linkType: 'noSale'
                         },{
                             name : '未开机设备',
                             props : 'nonBootDevice',
                             type : 'noBooting',
-                            time : '24'
+                            time : '24',
+                            linkType: 'noOpen'
                         },{
                             name : '设备总数',
                             props : 'totalNumberOfDevices',
-                            type : 'totalNuber'
+                            type : 'totalNuber',
+                            linkType : 'all'
                         }
                     ]
                     SalesData.forEach((item)=>{
@@ -155,6 +166,10 @@ class HomePage extends Component{
     onBarFun(e){
         this.props.history.push({ pathname : `/${e}`})
     }
+    //LinkFun
+    LinkFun(value){
+        this.props.history.push({ pathname : `/MyDevice`,state:{ 'menuType': value}})
+    }
     render(){
 
         const {accountName,currentTime}=this.state.content;
@@ -166,7 +181,7 @@ class HomePage extends Component{
                      { this.state.SalesArray.map((item,index)=><SalesStatistics items={item} key={index}/>)}
                     </div> 
                     <div className="TotalBolck">
-                       { this.state.TotalArray.map((item,index)=><TotalNumberItem items={item} key={index}/>)}
+                       { this.state.TotalArray.map((item,index)=><TotalNumberItem LinkTypeFun={this.LinkFun.bind(this)}  items={item} key={index}/>)}
                     </div>
                 </div>
                 <div className="TabBar">

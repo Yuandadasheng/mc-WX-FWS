@@ -80,4 +80,8 @@ export const apis={
     queryTerminalsStatusRes(params){
       return fetch('/app/mckj/facilitator/tokenMethod/queryTerminalsStatusRes',params);
     },
+    ///manage/common/area/tokenMethod/getMerchantAreasByFacilitator 地区
+    getMerchantAreasByFacilitator(params){
+      return fetch('/manage/common/area/tokenMethod/getMerchantAreasByFacilitator',params);
+    },
 }
