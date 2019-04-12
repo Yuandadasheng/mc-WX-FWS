@@ -1,6 +1,6 @@
 import React ,{ Component} from 'react';
 import TabBar from '@/component/TabBar/TabBar'
-import { getSession } from '@/utils/mUtils'
+import { getSession,isTokenValid } from '@/utils/mUtils'
 import Moment from 'react-moment';
 import 'moment-timezone';
 import './HomePage.scss'
@@ -84,6 +84,7 @@ class HomePage extends Component{
         }
     }
     componentDidMount(){
+        isTokenValid(this.props);
         let data={
             token : this.state.token
         }

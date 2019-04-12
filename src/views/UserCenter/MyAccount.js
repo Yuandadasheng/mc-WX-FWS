@@ -1,5 +1,5 @@
 import React ,{ Component} from 'react';
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid} from '@/utils/mUtils'
 import {Icon} from 'antd-mobile'
 import './MyAccount.scss'
 const AccountListData=[
@@ -62,6 +62,7 @@ class MyAccount extends Component{
         }
     }
     componentDidMount(){
+        isTokenValid(this.props)
         this.queryAccount();    
     }
     queryAccount(){

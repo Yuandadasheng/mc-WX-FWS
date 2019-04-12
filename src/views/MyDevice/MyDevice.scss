@@ -143,4 +143,33 @@
             color: #707070;
         }
     }
-} 
+}
+/* 正常运行 */
+.normal-txt {
+    font-weight: bold;
+    color: #2A55F7;
+}
+.online-txt{
+    color: #77C61A!important;
+}
+/* 无销量设备 */
+.noSale-txt {
+    font-weight: bold;
+    color: #77C61A;
+}
+
+/* 缺票设备 */
+.lack-txt {
+    font-weight: bold;
+    color: #FAB41D;
+}
+
+/* 未开机设备 */
+.noOpen-txt {
+    font-weight: bold;
+    color: #E60012;
+}
+.all-txt{
+    font-weight: bold;
+    color: #999;
+}

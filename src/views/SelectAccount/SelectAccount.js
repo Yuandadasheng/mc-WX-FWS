@@ -1,7 +1,7 @@
 import React ,{ Component} from 'react';
 import {Button,Toast} from 'antd-mobile'
 import  './SelectAccount.scss';
-import {getSession,setSession,} from '@/utils/mUtils'
+import {getSession,setSession,isTokenValid} from '@/utils/mUtils'
 class AccountList extends Component{
    
     accountClick=(e)=>{
@@ -46,6 +46,9 @@ class SelectAccount extends Component{
         this.state={
             accountIndex : null
         }
+    }
+    componentDidMount(){
+        isTokenValid(this.props)
     }
     accountIndexFun(val){
       this.setState({

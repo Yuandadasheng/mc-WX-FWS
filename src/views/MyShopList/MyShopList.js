@@ -1,7 +1,7 @@
 import React ,{ Component} from 'react';
 import ReactDOM from 'react-dom';
 import TabBar from '@/component/TabBar/TabBar';
-import { getSession } from '@/utils/mUtils';
+import { getSession , isTokenValid} from '@/utils/mUtils';
 import {PullToRefresh, Picker, List ,Toast} from 'antd-mobile';
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -258,6 +258,7 @@ class MyShopList extends Component{
         }
     }
     componentDidMount(){
+        isTokenValid(this.props)
         this.queryMyMerchant(true);
     }
     queryMyMerchant(ref=false){

@@ -1,6 +1,6 @@
 import React ,{ Component} from 'react';
 import ReactDOM from 'react-dom';
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid } from '@/utils/mUtils'
 import TabBar from '@/component/TabBar/TabBar'
 import { Doughnut } from 'react-chartjs-2'
 import { PullToRefresh, Toast} from 'antd-mobile';
@@ -83,7 +83,7 @@ class TabMenuList extends Component{
 }   
 const ListObj = (props) =>{
     const {obj,typeValue} = props
-    
+  
     return(
         <div 
             className="rowItem"
@@ -191,7 +191,7 @@ class ListViewEl extends React.Component {
             >
                 {this.state.data.map((i,index) => (
                 <div key={index} >
-                    <ListObj obj={i}  typeValue={this.state.typeValue}/>
+                    <ListObj obj={i}  typeValue={this.props.typeValue}/>
                 </div>
                 ))}
                 <div style={{height:'1.5rem'}}></div>
@@ -201,15 +201,19 @@ class ListViewEl extends React.Component {
     }
 }              
 class MyDevice extends Component{
-    constructor(){
-        super()
-        // const { tabMenuType } = this.props.location.state;
-        console.log(this.props)
+    constructor(props){
+        super(props)
+        let tabMenuType;
+        if(this.props.location.state){
+            const { menuType } = this.props.location.state;
+            tabMenuType = menuType ? menuType :'all';
+        }
+        
         this.state={
             token: getSession('accountToken'),
             selectedTab: 'MyDevice',
             TabMenuContent:null,
-            tabMenuType: 'all',
+            tabMenuType,
 
             datas:[],
             pageIndex:1,
@@ -219,7 +223,7 @@ class MyDevice extends Component{
         }
     }
     componentDidMount(){
-    
+        isTokenValid(this.props);
         this.queryTerminalStatusRes();
         this.genData(true)
     }
@@ -308,7 +312,7 @@ class MyDevice extends Component{
         
     }
     HanldFun(val){
-        // console.log(val)
+    
        
         this.setState({
             isLoading: true,
@@ -352,7 +356,7 @@ class MyDevice extends Component{
                     <ListViewEl  
                          datas={this.state.datas}
                          pageIndex={this.state.pageIndex}
-                      
+                         typeValue= { this.state.tabMenuType}
                          refreshing={this.state.refreshing}
                          isLoading={this.state.isLoading}
                          dataArr={this.state.dataArr}

@@ -1,5 +1,5 @@
 import React ,{ Component} from 'react';
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid } from '@/utils/mUtils'
 import {Icon,Button ,Toast } from 'antd-mobile'
 import './MyChangePWD.scss'
 
@@ -47,6 +47,9 @@ class MyChangePWD extends Component{
             newPassWord: '',
             retypePassWord:''
         }
+    }
+    componentDidMount(){
+        isTokenValid(this.props)
     }
     goBack(){
         this.props.history.goBack()

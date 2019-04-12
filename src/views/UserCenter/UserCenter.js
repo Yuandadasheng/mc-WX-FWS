@@ -1,7 +1,7 @@
 import React ,{ Component} from 'react';
 import {Icon ,Modal} from 'antd-mobile'
 import TabBar from '@/component/TabBar/TabBar'
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid} from '@/utils/mUtils'
 import './UserCenter.scss'
 
 // const alert = Modal.alert;
@@ -80,6 +80,7 @@ class UserCenter extends Component{
         }
     }
     componentWillMount(){
+        isTokenValid(this.props)
         this.queryPersonalCenter();    
     }
     queryPersonalCenter(){

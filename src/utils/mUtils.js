@@ -1,3 +1,5 @@
+import { apis } from './apis'
+
 /*存储SessionStorage*/
 export const setSession = (name,content)=>{
     if (!name) return;
@@ -33,4 +35,24 @@ export const setLocal = (name,content)=>{
 export const getLocal  = (name)=>{
     if (!name) return;
     return localStorage.getItem(name);
+}
+
+/* 判断token */
+export const isTokenValid= (props)=>{
+    let token = getSession('accountToken')
+    if(!token){
+        props.history.push({ pathname : `/`});
+        return ;
+    }  
+    let data={
+        token 
+    }
+    apis.isTokenValid(data)
+        .then(
+            res=>{
+                if(res.code !== 1){
+                    props.history.push({ pathname : `/`});
+                }
+            }
+        )
 }

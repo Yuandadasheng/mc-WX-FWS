@@ -1,5 +1,5 @@
 import React ,{ Component} from 'react';
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid } from '@/utils/mUtils'
 import {Icon} from 'antd-mobile'
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -81,6 +81,7 @@ class MyShopInfo extends Component{
         }
     }
     componentDidMount(){
+        isTokenValid(this.props)
         this.queryMyMerchantInformation()
     }
     goBack(){

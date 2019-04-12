@@ -1,7 +1,7 @@
 import React ,{ Component} from 'react';
 import ReactDOM from 'react-dom';
 import TabBar from '@/component/TabBar/TabBar'
-import { getSession } from '@/utils/mUtils'
+import { getSession ,isTokenValid} from '@/utils/mUtils'
 import { Button ,DatePicker,Toast,PullToRefresh} from 'antd-mobile';
 import Moment from 'react-moment';
 import 'moment-timezone';
@@ -131,7 +131,7 @@ class ListViewEl extends Component {
     // }
     render() {
         const { tradeCutType ,datas } = this.props;
-        console.log(tradeCutType)
+      
         return (<div>
            <PullToRefresh
                 damping={60}
@@ -286,6 +286,7 @@ class Transaction extends Component{
         }
     }
     componentDidMount(){
+        isTokenValid(this.props)
         this.queryOrderStatistics(true)
     }
     // tabBar 路由跳转
@@ -346,7 +347,7 @@ class Transaction extends Component{
     }
     //选中商户
     MerchantItemFun(value){
-        console.log(value)
+      
         this.setState({
             merchantsListModel : false,
             merchantId: value.merchantAccountId,
@@ -384,7 +385,7 @@ class Transaction extends Component{
             // dataArr:[],
             // datas:[],
         },()=>{
-            console.log(this.state.duration)
+           
             this.state.tradeCutType === 'tradeStatistics' ?  this.queryOrderStatistics(false) : this.queryOrderStream(false);
         })
     }
@@ -399,7 +400,7 @@ class Transaction extends Component{
             pageNum : this.state.pageIndex-1,
             token : this.state.token
         }
-        console.log(data)
+       
         this.$apis.queryOrderStatistics(data)
             .then(
                 res=>{
@@ -449,12 +450,12 @@ class Transaction extends Component{
             token : this.state.token
         }
        
-        console.log(2,data)
+      
         this.$apis.queryOrderStream(data)
             .then(
                 res=>{
                     if(res.code === 1){
-                        console.log(res)
+                        
                         const lg = res.content.length;
                         if(lg<=0){
                             Toast.info('没有数据了~',1);
@@ -608,10 +609,7 @@ class Transaction extends Component{
                         //  clickEvent = {this.clickEventFun.bind(this)}
                         /> :null
                     }
-                            {
-                            //    this.$moment(this.state.startingTime).format(this.state.dateformat)
-                                // console.log((<Moment format={this.state.dateformat} date={this.state.startingTime} locale="CH"/>))
-                             }
+                     
                 </div>
                 <div className="TabBar">
                     <TabBar onBar = {this.onBarFun.bind(this)} selectedTab={this.state.selectedTab} />

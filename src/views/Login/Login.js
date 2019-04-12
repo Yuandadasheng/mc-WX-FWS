@@ -89,6 +89,7 @@ class Login extends Component{
                 setLocal("loginName", this.state.username);
                 setLocal("loginPassword", this.state.pwd);
                 clearSession()
+                debugger;
                 if(res.content.markId === 1){
                     (res.content.loginAccountResList).map( 
                       // eslint-disable-next-line array-callback-return
