@@ -347,12 +347,11 @@ class Transaction extends Component{
     }
     //选中商户
     MerchantItemFun(value){
-      
         this.setState({
             merchantsListModel : false,
             merchantId: value.merchantAccountId,
-            merchantName: value.merchantName
-
+            merchantName: value.merchantName,
+            datas:[],
         },()=>{
             this.state.tradeCutType === 'tradeStatistics' ?  this.queryOrderStatistics(true) : this.queryOrderStream(true);
         })
@@ -361,6 +360,7 @@ class Transaction extends Component{
     startingTimeFun(value){
         
         this.setState({
+            datas:[],
             startingTime: value 
         },()=>{
             this.state.tradeCutType === 'tradeStatistics' ?  this.queryOrderStatistics(true) : this.queryOrderStream(true);
@@ -371,6 +371,7 @@ class Transaction extends Component{
     endTimeFun(value){
        
         this.setState({
+            datas:[],
             endTime: value 
         },()=>{
             this.state.tradeCutType === 'tradeStatistics' ?  this.queryOrderStatistics(true) : this.queryOrderStream(true);
@@ -611,7 +612,7 @@ class Transaction extends Component{
                     }
                      
                 </div>
-                <div className="TabBar">
+                <div className={["TabBar",getSession('specification')].join(' ')}>
                     <TabBar onBar = {this.onBarFun.bind(this)} selectedTab={this.state.selectedTab} />
                 </div>
                  {

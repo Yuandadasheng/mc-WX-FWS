@@ -185,7 +185,7 @@ class HomePage extends Component{
                        { this.state.TotalArray.map((item,index)=><TotalNumberItem LinkTypeFun={this.LinkFun.bind(this)}  items={item} key={index}/>)}
                     </div>
                 </div>
-                <div className="TabBar">
+                <div className={["TabBar",getSession('specification')].join(' ')}>
                     <TabBar  onBar = {this.onBarFun.bind(this)}  selectedTab={this.state.selectedTab} />
                 </div>
             </div>

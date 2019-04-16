@@ -1,5 +1,5 @@
 import { apis } from './apis'
-
+import {  Toast} from 'antd-mobile';
 /*存储SessionStorage*/
 export const setSession = (name,content)=>{
     if (!name) return;
@@ -51,8 +51,13 @@ export const isTokenValid= (props)=>{
         .then(
             res=>{
                 if(res.code !== 1){
-                    props.history.push({ pathname : `/`});
+                    Toast.offline('登录过期',1);
+                    setTimeout(()=>{
+                        props.history.push({ pathname : `/`});    
+                    },500)
                 }
             }
         )
 }
+
+

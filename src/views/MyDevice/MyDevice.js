@@ -83,7 +83,9 @@ class TabMenuList extends Component{
 }   
 const ListObj = (props) =>{
     const {obj,typeValue} = props
-  
+    // if(!objLength){
+    //     console.log(1)
+    // }
     return(
         <div 
             className="rowItem"
@@ -121,7 +123,7 @@ const ListObj = (props) =>{
                 </div>
                 <div>
                     <span   className="shop-address">
-                        地址：{obj.address}
+                    <img src={require('@/asstes/imgs/addrsh.png')} alt="" /> 地址：{obj.address}
                     </span>
                 </div>
 
@@ -203,11 +205,11 @@ class ListViewEl extends React.Component {
 class MyDevice extends Component{
     constructor(props){
         super(props)
-        let tabMenuType;
+        let menuType;
         if(this.props.location.state){
-            const { menuType } = this.props.location.state;
-            tabMenuType = menuType ? menuType :'all';
+              menuType  = this.props.location.state.menuType;
         }
+        let  tabMenuType = menuType ? menuType :'all';
         
         this.state={
             token: getSession('accountToken'),
@@ -363,7 +365,7 @@ class MyDevice extends Component{
                          onHanldFun = {this.HanldFun.bind(this)}
                     />
                 </div>
-                <div className="TabBar">
+                <div className={["TabBar",getSession('specification')].join(' ')}>
                     <TabBar onBar = {this.onBarFun.bind(this)} selectedTab={this.state.selectedTab} />
                 </div>
             </div>

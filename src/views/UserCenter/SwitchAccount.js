@@ -1,5 +1,5 @@
 import React ,{ Component} from 'react';
-import { setSession ,getSession,clearSession,isTokenValid} from '@/utils/mUtils'
+import { setSession ,getSession,clearSession} from '@/utils/mUtils'
 import { Button ,Toast } from 'antd-mobile'
 import './SwitchAccount.scss'
 
@@ -45,7 +45,6 @@ class SwitchAccount extends Component{
         }
     }
     componentWillMount(){
-        isTokenValid(this.props)
         this.switchAccount()
     }
     switchAccount(){

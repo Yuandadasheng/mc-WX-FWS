@@ -2,7 +2,6 @@ import React ,{ Component} from 'react';
 import { TabBar } from 'antd-mobile';
 import './TabBar.scss'
 
-
 const List=[
     {
         title : '首页',

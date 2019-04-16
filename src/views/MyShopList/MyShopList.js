@@ -20,8 +20,8 @@ class  ListModule extends  Component{
         return(
             <div className="areList">
                 <div className="areListItem" 
-                        onClick={this.onClickFun.bind(this,obj.id)}>
-                    <div className="areListItemLeft">
+                        >
+                    <div className="areListItemLeft" onClick={this.onClickFun.bind(this,obj.id)}>
                         <div className="areaName">
                             {obj.merchantName}
                         </div>
@@ -372,7 +372,7 @@ class MyShopList extends Component{
                      /> :null
                 }
                 </div>    
-                <div className="TabBar">
+                <div className={["TabBar",getSession('specification')].join(' ')}>
                     <TabBar onBar = {this.onBarFun.bind(this)} selectedTab={this.state.selectedTab} />
                 </div>
             </div>

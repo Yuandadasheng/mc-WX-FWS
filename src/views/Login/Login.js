@@ -53,11 +53,12 @@ class Login extends Component{
     componentDidMount(){
      let loginName = getLocal("loginName"); 
      let loginPassword = getLocal("loginPassword");
-     this.setState({
-        username: loginName,
-        pwd: loginPassword
-     })
-     
+     if(loginName&&loginPassword){
+        this.setState({
+          username: loginName,
+          pwd: loginPassword
+      })
+     }
     }
     // 获取用户名
     handleNameFun(event){
@@ -86,24 +87,29 @@ class Login extends Component{
       this.$apis.facilitatorLogin(data)
         .then(res =>{
               if(res.code === 1){
-                setLocal("loginName", this.state.username);
-                setLocal("loginPassword", this.state.pwd);
-                clearSession()
-                debugger;
-                if(res.content.markId === 1){
-                    (res.content.loginAccountResList).map( 
-                      // eslint-disable-next-line array-callback-return
-                      (item)=>{
-                        for(let  i in item){
-                            setSession(i,item[i])
-                        }
-                        this.props.history.push({ pathname : "/HomePage"})
-                        // this.props.history.push("/SelectAccount")
-                    })
-                }else{
-                     setSession('loginAccountResList',res.content.loginAccountResList)
-                     this.props.history.push({ pathname : "/SelectAccount"})
-                }
+                  setLocal("loginName", this.state.username);
+                  setLocal("loginPassword", this.state.pwd);
+                  clearSession()
+               
+                      if(res.content.markId === 1){
+                          (res.content.loginAccountResList).map( 
+                            // eslint-disable-next-line array-callback-return
+                            (item)=>{
+                              for(let  i in item){
+                                  setSession(i,item[i])
+                              }
+                           
+                              this.props.history.push({ pathname : "/HomePage"})
+                              // this.props.history.push("/SelectAccount")
+                          })
+                      }else{
+                        
+                          setSession('loginAccountResList',res.content.loginAccountResList)
+                  
+                          this.props.history.push({ pathname : "/SelectAccount"})
+                     
+                      }
+                  
               }else{
                 Toast.offline(res.msg, 1);
               }

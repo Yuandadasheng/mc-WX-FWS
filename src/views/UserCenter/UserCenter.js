@@ -18,12 +18,12 @@ const SetListData=[
         rightArrows : true,
         icon : require('@/asstes/imgs/mmxg.png')
     },
-    {
-        name : '切换账号',
-        props : 'SwitchAccount',
-        rightArrows : true,
-        icon : require('@/asstes/imgs/qhzh.png')
-    },
+    // {
+    //     name : '切换账号',
+    //     props : 'SwitchAccount',
+    //     rightArrows : true,
+    //     icon : require('@/asstes/imgs/qhzh.png')
+    // },
     {
         name : '退出登录',
         props : 'exit',
@@ -143,7 +143,7 @@ class UserCenter extends Component{
                    
                 </div>
                
-                <div className="TabBar">
+                <div className={["TabBar",getSession('specification')].join(' ')}>
                     <TabBar onBar = {this.onBarFun.bind(this)} selectedTab={this.state.selectedTab} />
                 </div>
             </div>
